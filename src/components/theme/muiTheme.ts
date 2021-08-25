@@ -144,7 +144,7 @@ const commonTheme = {
 
 let regularTheme = createTheme({
   typography: {
-    fontFamily: 'Lato',
+    fontFamily: 'Shabnam',
     ...fontSizes,
   },
   ...commonTheme,

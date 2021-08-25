@@ -1,27 +1,12 @@
-import React, { CSSProperties, FC, useContext } from 'react';
+import React, { CSSProperties, FC } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Head from 'next/head';
-import Link from 'next/link';
 import styled from 'styled-components';
-import rtl from 'styled-components-rtl';
 
-import { layoutContext } from '$lib/layoutContext';
-import { useOrgInfo } from '$lib/useOrgInfo';
-import { useUserInfo } from '$lib/useUserInfo';
+// import { useUserInfo } from '$lib/useUserInfo';
 
-import Logo from '../../../../public/library.svg';
-
-import NavbarList, { INavbarItem } from './NavbarList';
-
-const LogoContainer = styled.a`
-  display: inline-block;
-  vertical-align: top;
-  width: 10rem;
-  height: 47px;
-  cursor: pointer;
-  text-decoration: none;
-`;
+import NavbarList, { INavbarItem } from './Navbar/NavbarList';
 
 interface ITopBarContainer {
   isAdminPage?: boolean;
@@ -30,22 +15,16 @@ interface ITopBarContainer {
 const TopBarContainer = styled.div<ITopBarContainer>`
   display: flex;
   height: 48px;
-  ${rtl`
-    padding-left: ${(props) => (props.isAdminPage ? '0.5rem' : 'inherit')};
-    padding-right: ${(props) => (props.isAdminPage ? '2.5rem' : 'inherit')};
-  `}
+  padding-right: '0.5rem';
+  padding-left: '2.5rem';
 `;
 
-const RightPositionGrid = styled((props) => <Grid {...props} />)`
-  ${rtl`
-    padding-right: ${(props) => (props.isAdminPage ? 'inherit' : '8vw')};
-  `}
+const RightPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props} />)`
+  padding-left: 'inherit';
 `;
 
-const LeftPositionGrid = styled((props) => <Grid {...props} />)`
-  ${rtl`
-    padding-left:  ${(props) => (props.isAdminPage ? 'inherit' : '7vw')};
-  `}
+const LeftPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props} />)`
+  padding-right: 'inherit';
   flex-grow: 1;
 `;
 
@@ -54,15 +33,16 @@ interface Props {
   rightMenuItems: INavbarItem[];
 }
 export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
-  const { isAdminPage } = useContext(layoutContext);
-  const orgInfo = useOrgInfo();
-  const { userInfo } = useUserInfo();
+  // const { userInfo } = useUserInfo();
+  const { userInfo } = { userInfo: { _id: '0' } };
+  const isAdminPage = true;
 
   const GridContainerStyles: CSSProperties = {
-    height: !isAdminPage ? '8.8rem' : '10rem',
+    height: '10rem',
     position: 'fixed',
     zIndex: 1300,
     backgroundColor: '#ededed',
+    maxWidth: '77vw',
   };
 
   const isLoggedIn = !!userInfo;
@@ -70,29 +50,16 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
   return (
     <>
       <Head>
-        <title>{orgInfo.name ?? 'Repository'}</title>
+        <title>سازمان مدیریت گیلان</title>
       </Head>
       <Grid
         container
         style={GridContainerStyles}
-        justify={'space-between'}
+        justifyContent={'space-between'}
         alignContent="center"
       >
         <LeftPositionGrid item isAdminPage={isAdminPage}>
           <Grid container>
-            {!isAdminPage && (
-              <Grid item>
-                <Link href="/" passHref>
-                  <LogoContainer data-cy="navbar-logo">
-                    {orgInfo.logo ? (
-                      <img src={orgInfo.logo} style={{ width: '100%', height: '100%' }} />
-                    ) : (
-                      <Logo style={{ width: '100%', height: '100%' }} />
-                    )}
-                  </LogoContainer>
-                </Link>
-              </Grid>
-            )}
             <Grid item>
               <TopBarContainer isAdminPage={isAdminPage} data-cy="navbar-left-links">
                 <NavbarList
@@ -105,7 +72,7 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
           </Grid>
         </LeftPositionGrid>
         <RightPositionGrid item isAdminPage={isAdminPage}>
-          <Grid container justify="flex-end" alignItems="center">
+          <Grid container justifyContent="flex-end" alignItems="center">
             <Grid item>
               <TopBarContainer isAdminPage={isAdminPage} data-cy="navbar-right-links">
                 <NavbarList

@@ -1,27 +1,19 @@
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import GridSystem from './_grid';
 import styled from 'styled-components';
 import Navbar from '$components/app/Navbar';
 import Sidebar from '$components/app/Sidebar';
+import { sidebarTopMenuList } from '$components/layout/menu.config/sidebar.config';
 import {
-  appLeftNavbarItems,
-  appRightNavbarItems,
-} from '$components/app/Navbar/navbar.config';
-import {
-  sidebarBottomMenuList,
-  sidebarTopMenuList,
-} from '$components/app/Sidebar/sidebar.config';
+  adminLeftNavbarItems,
+  adminRightNavbarItems,
+} from '$components/layout/menu.config';
 
 const HeaderContainer = styled.div`
   grid-area: header;
   position: sticky;
   z-index: 1001;
-`;
-
-const ComponentContainer = styled.div`
-  grid-area: body;
-  padding: 10px;
-  margin: 2rem 0rem;
 `;
 
 const SidebarContainer = styled.div`
@@ -31,27 +23,44 @@ const SidebarContainer = styled.div`
   top: 0;
 `;
 
+const AdminComponentContainer = styled.div`
+  grid-area: body;
+  padding: 10px;
+  margin: 4rem 2rem;
+`;
+
+const AdminContentBodyContainer = styled.div`
+  height: 100%;
+`;
+
+interface AdminLayoutProps {
+  routePathname: string;
+}
+const AdminLayout: FC<AdminLayoutProps> = (props) => {
+  return (
+    <>
+      <HeaderContainer>
+        <Navbar
+          leftMenuItems={adminLeftNavbarItems}
+          rightMenuItems={adminRightNavbarItems}
+        />
+      </HeaderContainer>
+      <AdminComponentContainer>
+        <AdminContentBodyContainer>{props.children}</AdminContentBodyContainer>
+      </AdminComponentContainer>
+      <SidebarContainer>
+        <Sidebar topMenuList={sidebarTopMenuList} pathname={props.routePathname} />
+      </SidebarContainer>
+    </>
+  );
+};
+
 export default function Layout(props: any) {
   const router = useRouter();
 
   return (
     <GridSystem>
-      <>
-        {/* <HeaderContainer>
-          <Navbar
-            leftMenuItems={appLeftNavbarItems({ redirectPath: router.asPath })}
-            rightMenuItems={appRightNavbarItems}
-          />
-        </HeaderContainer> */}
-        <ComponentContainer>{props.children}</ComponentContainer>
-        {/* <SidebarContainer>
-          <Sidebar
-            bottomMenuList={sidebarBottomMenuList}
-            topMenuList={sidebarTopMenuList}
-            pathname={props.routePathname}
-          />
-        </SidebarContainer> */}
-      </>
+      <AdminLayout routePathname={router.pathname}>{props.children}</AdminLayout>
     </GridSystem>
   );
 }

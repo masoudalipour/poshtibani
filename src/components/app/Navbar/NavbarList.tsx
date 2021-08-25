@@ -5,9 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import { useAuth } from '$lib/authorization/useAuth';
-import { useOrgInfo } from '$lib/useOrgInfo';
-
 import { itemIsActive } from '$utils';
 
 export type INavbarItem = LabelItem | ComponentItem;
@@ -91,10 +88,9 @@ interface Props {
 
 export const NavbarList: FC<Props> = ({ menuItems, position, loggedIn }) => {
   const router = useRouter();
-  const [, isOpenAccess] = useAuth({}, 'DataLink');
+  const [, isOpenAccess] = [false, true];
 
-  const existsSingleEnabledLanguage =
-    useOrgInfo().internationalizationConfigs.length === 1;
+  const existsSingleEnabledLanguage = true;
 
   return (
     <>

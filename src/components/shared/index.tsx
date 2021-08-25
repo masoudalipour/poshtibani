@@ -7,7 +7,7 @@ export * from './Progress';
 // export * from './DataTable/DataTable';
 // export * from './DataTable/DataTableTypes';
 // export * from './DeleteConfirmationDialog/DeleteConfirmationDialog';
-// export * from './icon/Icon';
+export * from './icon/Icon';
 // export * from './Checkbox/RepoCheckbox';
 // export * from './Validation/ValidationWrapper';
 // export * from './DataGrid/DataGrid';

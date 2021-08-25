@@ -12,8 +12,7 @@ import { DefaultTheme, ThemeProvider as SCThemeProvider } from 'styled-component
 
 import { AppLayout } from '$components/layout/App';
 import { messageColors } from '$components/shared/messageColors';
-import { theme, arabicTheme } from '$components/theme/muiTheme';
-import { useApollo } from '$lib/apollo/apolloClient';
+import { theme } from '$components/theme/muiTheme';
 import { PageAuthorization } from '$lib/authorization/PageAuthorization';
 
 import Layout from './_layout';
@@ -31,34 +30,29 @@ const useStyles = makeStyles({
 });
 
 const Providers = (props, pageProps) => {
-  const apolloClient = useApollo(pageProps.initialApolloState);
-  const [appStyle, _] = useState<DefaultTheme>({
-    ...theme,
-    direction: 'rtl',
-    arabicTheme,
-  });
+  // const apolloClient = useApollo(pageProps.initialApolloState);
 
   const classes = useStyles();
 
   return (
     <StylesProvider jss={jss}>
-      <MuiThemeProvider theme={appStyle}>
-        <SCThemeProvider theme={appStyle}>
-          <ApolloProvider client={apolloClient}>
-            <CssBaseline />
-            <SnackbarProvider
-              maxSnack={3}
-              hideIconVariant
-              classes={{
-                variantSuccess: classes.success,
-                variantError: classes.error,
-                variantWarning: classes.warning,
-                variantInfo: classes.info,
-              }}
-            >
-              <AppLayout>{props.children}</AppLayout>
-            </SnackbarProvider>
-          </ApolloProvider>
+      <MuiThemeProvider theme={theme}>
+        <SCThemeProvider theme={theme}>
+          {/* <ApolloProvider client={apolloClient}> */}
+          <CssBaseline />
+          <SnackbarProvider
+            maxSnack={3}
+            hideIconVariant
+            classes={{
+              variantSuccess: classes.success,
+              variantError: classes.error,
+              variantWarning: classes.warning,
+              variantInfo: classes.info,
+            }}
+          >
+            <AppLayout>{props.children}</AppLayout>
+          </SnackbarProvider>
+          {/* </ApolloProvider> */}
         </SCThemeProvider>
       </MuiThemeProvider>
     </StylesProvider>

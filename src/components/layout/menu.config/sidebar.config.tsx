@@ -3,9 +3,6 @@ import React from 'react';
 import { ISidebarList } from '$components/app/Sidebar/SidebarList';
 import { Icon } from '$components/shared';
 
-import SettingsIcon from '../../../../public/icons/sidebar/settings.svg';
-import ToolIcon from '../../../../public/icons/sidebar/tools.svg';
-
 const logoStyle = { width: '100%', height: '100%', fontSize: '3.2rem', color: '#fff' };
 
 const getItemWithAbsoluteHref = (item, prefixPath) => {
@@ -13,7 +10,7 @@ const getItemWithAbsoluteHref = (item, prefixPath) => {
 };
 
 const concatAdminPath = (item: ISidebarList) => {
-  const _item = { ...item, href: `/admin${item.href}` };
+  const _item = { ...item, href: `/${item.href}` };
 
   if (_item.child) {
     _item.child = _item.child.map((childItem) =>
@@ -26,71 +23,57 @@ const concatAdminPath = (item: ISidebarList) => {
 
 export const sidebarTopMenuList: ISidebarList[] = [
   {
-    label: 'Home',
+    label: 'صفحه اصلی',
     href: '',
     icon: <Icon style={logoStyle} icon="Home" />,
   },
   {
-    label: 'User Management',
+    label: 'فناوری اطلاعات',
     href: '/user-management',
-    icon: <Icon style={logoStyle} icon="Users" />,
-    child: [
-      {
-        label: 'Users',
-        href: '/users',
-        orgAdminItem: true,
-      },
-      {
-        label: 'Authority Groups',
-        href: '/authorityGroups',
-        orgAdminItem: true,
-      },
-      {
-        label: 'Collection Access Management',
-        href: '/authorizationRules',
-      },
-    ],
+    icon: <Icon style={logoStyle} icon="Folder" />,
+    // child: [
+    //   {
+    //     label: 'آیتم ۱',
+    //     href: '/users',
+    //     orgAdminItem: true,
+    //   },
+    //   {
+    //     label: 'آیتم ۲',
+    //     href: '/authorityGroups',
+    //     orgAdminItem: true,
+    //   },
+    //   {
+    //     label: 'آیتم ۳',
+    //     href: '/authorizationRules',
+    //   },
+    // ],
   },
 
   {
-    label: 'Schemas',
+    label: 'اداری، مالی و پشتیبانی',
     href: '/schemas',
-    icon: <Icon style={logoStyle} icon="Schema" />,
+    icon: <Icon style={logoStyle} icon="Folder" />,
     orgAdminItem: true,
   },
   {
-    label: 'Trees',
+    label: 'مالی',
     href: '/jungle',
-    icon: <Icon style={logoStyle} icon="Tree" />,
+    icon: <Icon style={logoStyle} icon="Folder" />,
     orgAdminItem: true,
   },
   {
-    label: 'Plugins',
+    label: 'آموزش',
     href: '/plugins',
-    icon: <Icon style={logoStyle} icon="Plugin" />,
-  },
-].map(concatAdminPath);
-
-export const sidebarBottomMenuList: ISidebarList[] = [
-  {
-    label: 'Tools',
-    href: '/tools',
-    icon: <ToolIcon style={logoStyle} />,
-    bold: true,
-    orgAdminItem: true,
+    icon: <Icon style={logoStyle} icon="Folder" />,
   },
   {
-    label: 'Settings',
-    href: '/settings',
-    icon: <SettingsIcon style={logoStyle} />,
-    bold: true,
-    orgAdminItem: true,
-    child: [
-      {
-        label: 'Dictionaries',
-        href: '/dictionaries',
-        orgAdminItem: true,
-      },
-    ],
+    label: 'بیمه تکمیلی',
+    href: '/plugins1',
+    icon: <Icon style={logoStyle} icon="Folder" />,
+  },
+  {
+    label: 'رفاه',
+    href: '/plugins2',
+    icon: <Icon style={logoStyle} icon="Folder" />,
   },
 ].map(concatAdminPath);

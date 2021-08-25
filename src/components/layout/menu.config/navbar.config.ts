@@ -4,8 +4,8 @@ import UserNavbarMenu from '$components/app/Navbar/UserNavbarMenu';
 
 export const adminLeftNavbarItems: INavbarItem[] = [
   {
-    label: 'Main Page',
-    href: '/admin',
+    label: 'صفحه اصلی',
+    href: '/',
     as: '',
   },
   {
@@ -23,27 +23,17 @@ export const adminLeftNavbarItems: INavbarItem[] = [
 // TODO: The UserLanguage will be uncomment when we support internationalization in the admin panel
 export const adminRightNavbarItems: INavbarItem[] = [
   {
-    label: 'Help',
-    href: '/Help',
-    as: '',
-  },
-  // {
-  //   label: 'UserLanguage',
-  //   component: UserLanguage,
-  //   as: '',
-  // },
-  {
     key: 'UserMenu',
     onlyWhenLoggedIn: true,
     component: UserNavbarMenu,
     props: {
       items: [
         {
-          label: 'Profile',
+          label: 'پروفایل',
           href: '/profile',
         },
         {
-          label: 'Logout',
+          label: 'خروج',
           href: `/api/v1/auth/logout`,
         },
       ],
