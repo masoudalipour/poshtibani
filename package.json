@@ -1,0 +1,31 @@
+{
+  "name": "poshtibani",
+  "version": "0.0.1",
+  "description": "Edari, Mali & Poshtibani Web Page",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "Mohammad Alipour",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/client": "^3.4.8",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "apollo-upload-client": "^16.0.0",
+    "graphql": "^15.5.1",
+    "gsap": "^3.7.1",
+    "isomorphic-unfetch": "^3.1.0",
+    "lodash": "^4.17.21",
+    "next": "^11.1.0",
+    "notistack": "^1.0.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}

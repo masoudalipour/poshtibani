@@ -1,0 +1,40 @@
+{
+  "GraphQL Query Resolver": {
+    "prefix": "gqlQuery",
+    "body": [
+      "import { QueryResolvers, Query${TM_FILENAME/(.)(.*?)[.].*/${1:/upcase}$2/}Args } from '\\$types/gqlTypes';",
+      "import Joi from 'joi';",
+      "",
+      "type T = QueryResolvers['${TM_FILENAME/[.].*/$1/}'];",
+      "const resolver: T = async (root, args, context) => {",
+      "\t$2",
+      "};",
+      "",
+      "export const argsShape = Joi.object<Query${TM_FILENAME/(.)(.*?)[.].*/${1:/upcase}$2/}Args>().keys({",
+      "\t$0",
+      "});",
+      "",
+      "export default resolver;"
+    ],
+    "description": "graphQL Query Resolver"
+  },
+  "GraphQL Mutation Resolver": {
+    "prefix": "gqlMutation",
+    "body": [
+      "import { MutationResolvers, Mutation${TM_FILENAME/(.)(.*?)[.].*/${1:/upcase}$2/}Args } from '\\$types/gqlTypes';",
+      "import Joi from 'joi';",
+      "",
+      "type T = MutationResolvers['${TM_FILENAME/[.].*/$1/}'];",
+      "const resolver: T = async (root, args, context) => {",
+      "\t$1",
+      "};",
+      "${2:",
+      "export const argsShape = Joi.object<Mutation${TM_FILENAME/(.)(.*?)[.].*/${1:/upcase}$2/}Args>().keys({",
+      "\t$3",
+      "\\});",
+      "}",
+      "export default resolver;"
+    ],
+    "description": "graphQL Mutation Resolver"
+  }
+}

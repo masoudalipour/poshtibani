@@ -1,0 +1,41 @@
+{
+  "TypeScript React Function Component": {
+    "prefix": "rcomp",
+    "body": [
+      "import React, { FC } from 'react';",
+      "",
+      "interface I${TM_FILENAME/[.].*/$1/} {",
+      "\t$1",
+      "}",
+      "",
+      "export const ${TM_FILENAME/[.].*/$1/}: FC<I${TM_FILENAME/[.].*/$1/}> = (props) => {",
+      "\treturn ${2:<div>$3</div>}",
+      "};",
+      "",
+      "export default ${TM_FILENAME/[.].*/$1/};"
+    ],
+    "description": "React Function Component in TypeScript"
+  },
+  "NextPage": {
+    "prefix": "nextp",
+    "body": [
+      "import React from 'react';",
+      "import { NextPage } from 'next';",
+      "import { withApollo } from '\\$withApollo';",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage = () => {",
+      "  return ${2:<div>${3:${TM_FILENAME/[.].*/$1/}}</div>};",
+      "};",
+      "",
+      "export default withApollo($1);",
+    ],
+    "description": "next page"
+  },
+  "Log to console": {
+		"prefix": "lg",
+		"body": [
+			"console.log(` ==> $1 ==> `, $1)"
+		],
+		"description": "Log output to the console"
+  }
+}
