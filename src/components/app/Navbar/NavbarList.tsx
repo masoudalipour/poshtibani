@@ -111,10 +111,9 @@ export const NavbarList: FC<Props> = ({ menuItems, position, loggedIn }) => {
         if (isLabelItem(item)) {
           return (
             matchedFromLoggedInSide && (
-              <Link key={item.label} href={item.href} as={item.as} passHref>
+              <Link key={item.label} href={'#'} as={item.as} passHref>
                 <MenuItemContainer
                   target={item.href === '/admin' ? '_blank' : undefined}
-                  data-cy={item.label}
                   position={position}
                 >
                   <MenuItemCustom
@@ -133,7 +132,7 @@ export const NavbarList: FC<Props> = ({ menuItems, position, loggedIn }) => {
 
           return (
             <Wrapper key={item.key}>
-              <Component {...item.props} key={item.key} data-cy={item.key} />
+              <Component {...item.props} key={item.key} />
             </Wrapper>
           );
         }

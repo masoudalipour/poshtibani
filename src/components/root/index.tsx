@@ -6,11 +6,7 @@ const RootPageContainer = styled.div`
 `;
 
 export const Root: FC = () => {
-  return (
-    <RootPageContainer>
-      <h1>Hi</h1>
-    </RootPageContainer>
-  );
+  return <RootPageContainer></RootPageContainer>;
 };
 
 export default Root;

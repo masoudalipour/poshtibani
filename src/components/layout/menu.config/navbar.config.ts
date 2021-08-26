@@ -8,16 +8,6 @@ export const adminLeftNavbarItems: INavbarItem[] = [
     href: '/',
     as: '',
   },
-  {
-    label: 'Requests',
-    href: '/requests',
-    as: '',
-  },
-  {
-    label: 'Reports',
-    href: '/reports',
-    as: '',
-  },
 ];
 
 // TODO: The UserLanguage will be uncomment when we support internationalization in the admin panel

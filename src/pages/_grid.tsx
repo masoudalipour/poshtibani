@@ -20,8 +20,8 @@ const useStyles = makeStyles((_theme: Theme) => {
       gridTemplateAreas: () => {
         // Each element in the area indicates horizontal area
         const areas = [
-          areaWidth('sidebar', 4) + areaWidth('header', 14),
-          areaWidth('sidebar', 4) + areaWidth('body', 14),
+          areaWidth('sidebar', 3) + areaWidth('header', 13),
+          areaWidth('sidebar', 3) + areaWidth('body', 13),
         ];
         return convertToAreaFormat(areas);
       },

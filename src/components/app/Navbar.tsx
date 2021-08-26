@@ -25,13 +25,19 @@ const RightPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props}
 
 const LeftPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props} />)`
   padding-right: 'inherit';
-  flex-grow: 1;
+  /* flex-grow: 1; */
 `;
 
 interface Props {
   leftMenuItems: INavbarItem[];
   rightMenuItems: INavbarItem[];
 }
+
+const LogoContainer = styled.div`
+  /* width: 20rem; */
+  height: 7rem;
+  cursor: pointer;
+`;
 export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
   // const { userInfo } = useUserInfo();
   const { userInfo } = { userInfo: { _id: '0' } };
@@ -41,8 +47,8 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
     height: '10rem',
     position: 'fixed',
     zIndex: 1300,
-    backgroundColor: '#ededed',
-    maxWidth: '77vw',
+    backgroundColor: 'rgb(74, 195, 142)',
+    maxWidth: '83vw',
   };
 
   const isLoggedIn = !!userInfo;
@@ -59,9 +65,9 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
         alignContent="center"
       >
         <LeftPositionGrid item isAdminPage={isAdminPage}>
-          <Grid container>
+          {/* <Grid container>
             <Grid item>
-              <TopBarContainer isAdminPage={isAdminPage} data-cy="navbar-left-links">
+              <TopBarContainer isAdminPage={isAdminPage}>
                 <NavbarList
                   menuItems={leftMenuItems}
                   position="left"
@@ -69,12 +75,16 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
                 />
               </TopBarContainer>
             </Grid>
-          </Grid>
+          </Grid> */}
         </LeftPositionGrid>
+        <LogoContainer>
+          {/* <Logo className={classes.logo} /> */}
+          <img src={'org.logo.png'} style={{ width: '100%', height: '100%' }} />
+        </LogoContainer>
         <RightPositionGrid item isAdminPage={isAdminPage}>
           <Grid container justifyContent="flex-end" alignItems="center">
             <Grid item>
-              <TopBarContainer isAdminPage={isAdminPage} data-cy="navbar-right-links">
+              <TopBarContainer isAdminPage={isAdminPage}>
                 <NavbarList
                   menuItems={rightMenuItems}
                   position="right"

@@ -126,7 +126,7 @@ const MainLink: FC<any> = ({ field, children, isOpen }) => {
     return <StyledMainLink isOpen={isOpen}>{children}</StyledMainLink>;
   }
 
-  return <Link href={field.href}>{children}</Link>;
+  return <Link href={'#'}>{children}</Link>;
 };
 
 interface MainListProps {
@@ -157,12 +157,12 @@ export const SidebarList: FC<MainListProps> = ({ list, child, pathname, depthLev
   };
 
   const childrenLevel = (depthLevel ?? 0) + 1;
-
+  console.log(` ==> pathname ==> `, pathname);
   return (
     <>
       {filteredList.map((field) => (
         <div key={field.href}>
-          <MainLink field={field} pathname={pathname} isOpen={subMenuOpen?.[field.label]}>
+          <MainLink field={field} pathname={'/'} isOpen={subMenuOpen?.[field.label]}>
             <StyledListItem
               classes={{ root: classes.listItem }}
               button

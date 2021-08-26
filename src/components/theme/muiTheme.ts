@@ -5,7 +5,7 @@ const fontSizes = {
     fontSize: '1.2rem',
   },
   body1: {
-    fontSize: '1.4rem',
+    fontSize: '1.7rem',
   },
   body2: {
     fontSize: '1.6rem',
@@ -14,7 +14,7 @@ const fontSizes = {
     fontSize: '1.6rem',
   },
   subtitle2: {
-    fontSize: '1.4rem',
+    fontSize: '1.7rem',
   },
   h1: {
     fontSize: '9.6rem',
@@ -35,7 +35,7 @@ const fontSizes = {
     fontSize: '2.0rem',
   },
   button: {
-    fontSize: '1.4rem',
+    fontSize: '1.7rem',
   },
   caption: {
     fontSize: '1.3rem',
@@ -107,12 +107,12 @@ const commonTheme = {
     },
     MuiButton: {
       root: {
-        fontSize: '1.4rem',
+        fontSize: '1.7rem',
       },
     },
     MuiButtonBase: {
       root: {
-        fontSize: '1.4rem',
+        fontSize: '1.7rem',
         lineHeight: '1',
       },
     },
@@ -144,7 +144,7 @@ const commonTheme = {
 
 let regularTheme = createTheme({
   typography: {
-    fontFamily: 'Shabnam',
+    fontFamily: 'BYekan',
     ...fontSizes,
   },
   ...commonTheme,

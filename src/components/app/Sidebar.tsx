@@ -12,18 +12,18 @@ import Logo from '../../../public/library.svg';
 import SidebarList, { ISidebarList } from './Sidebar/SidebarList';
 
 const LogoContainer = styled.div`
-  width: 20rem;
-  height: 7rem;
+  /* width: 20rem; */
+  /* height: 7rem; */
   cursor: pointer;
 `;
 
 const useStyles = makeStyles(() =>
   createStyles({
     toolbar: {
-      background: '#5CDB95',
+      background: 'rgb(74, 195, 142)',
       height: '10rem',
       display: 'flex',
-      marginBottom: '6.6rem',
+      marginBottom: '4.6rem',
       justifyContent: 'center',
       alignItems: 'center',
       maxHeight: '11.5rem',
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
     },
     topListRoot: {
       '&>div': {
-        marginBottom: '4.8rem',
+        marginBottom: '2.5rem',
       },
     },
     logo: {
@@ -69,7 +69,8 @@ export const Sidebar: FC<Props> = ({ topMenuList, pathname }) => {
       <Grid item className={classes.toolbar}>
         <Link href={'/'}>
           <LogoContainer>
-            <Logo className={classes.logo} />
+            {/* <Logo className={classes.logo} /> */}
+            <img src={'iran.flag.png'} style={{ width: '100%', height: '100%' }} />
           </LogoContainer>
         </Link>
       </Grid>

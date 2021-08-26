@@ -78,7 +78,6 @@ export const UserNavbarMenu: FC<UserNavbarMenuProps> = ({ items }) => {
             aria-haspopup="true"
             onClick={handleClick}
             fontSize="large"
-            data-cy="navbar-user-menu"
           />
           <Menu
             id="user-menu"

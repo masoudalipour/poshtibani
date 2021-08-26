@@ -18,11 +18,18 @@
   src: url('/fonts/shabnam/Shabnam.ttf');
 }
 
+@font-face {
+  font-family: 'byekan';
+  src: url('/fonts/yekan/BYekan.ttf');
+}
+
 .container {
   text-align: center;
 }
 body {
-  background-color: #f2f2f2;
+  background-image: url('public/website.background.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   overflow-x: hidden;
 }
 
