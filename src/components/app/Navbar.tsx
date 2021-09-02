@@ -19,11 +19,11 @@ const TopBarContainer = styled.div<ITopBarContainer>`
   padding-left: '2.5rem';
 `;
 
-const RightPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props} />)`
+const RightPositionGrid = styled(Grid)`
   padding-left: 'inherit';
 `;
 
-const LeftPositionGrid = styled(({ isAdminPage, ...props }) => <Grid {...props} />)`
+const LeftPositionGrid = styled(Grid)`
   padding-right: 'inherit';
   /* flex-grow: 1; */
 `;
@@ -41,7 +41,6 @@ const LogoContainer = styled.div`
 export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
   // const { userInfo } = useUserInfo();
   const { userInfo } = { userInfo: { _id: '0' } };
-  const isAdminPage = true;
 
   const GridContainerStyles: CSSProperties = {
     height: '10rem',
@@ -64,10 +63,10 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
         justifyContent={'space-between'}
         alignContent="center"
       >
-        <LeftPositionGrid item isAdminPage={isAdminPage}>
+        <LeftPositionGrid item>
           {/* <Grid container>
             <Grid item>
-              <TopBarContainer isAdminPage={isAdminPage}>
+              <TopBarContainer>
                 <NavbarList
                   menuItems={leftMenuItems}
                   position="left"
@@ -81,10 +80,10 @@ export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
           {/* <Logo className={classes.logo} /> */}
           <img src={'org.logo.png'} style={{ width: '100%', height: '100%' }} />
         </LogoContainer>
-        <RightPositionGrid item isAdminPage={isAdminPage}>
+        <RightPositionGrid item>
           <Grid container justifyContent="flex-end" alignItems="center">
             <Grid item>
-              <TopBarContainer isAdminPage={isAdminPage}>
+              <TopBarContainer>
                 <NavbarList
                   menuItems={rightMenuItems}
                   position="right"

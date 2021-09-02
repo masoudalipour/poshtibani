@@ -1,5 +1,4 @@
 import { INavbarItem } from '$components/app/Navbar/NavbarList';
-// import UserLanguage from '$components/app/Navbar/UserLanguage';
 import UserNavbarMenu from '$components/app/Navbar/UserNavbarMenu';
 
 export const adminLeftNavbarItems: INavbarItem[] = [

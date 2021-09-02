@@ -157,7 +157,7 @@ export const SidebarList: FC<MainListProps> = ({ list, child, pathname, depthLev
   };
 
   const childrenLevel = (depthLevel ?? 0) + 1;
-  console.log(` ==> pathname ==> `, pathname);
+
   return (
     <>
       {filteredList.map((field) => (
