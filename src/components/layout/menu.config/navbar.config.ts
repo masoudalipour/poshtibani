@@ -19,11 +19,11 @@ export const adminRightNavbarItems: INavbarItem[] = [
       items: [
         {
           label: 'پروفایل',
-          href: '/profile',
+          href: '',
         },
         {
           label: 'خروج',
-          href: `/api/v1/auth/logout`,
+          href: ``,
         },
       ],
     },

@@ -29,7 +29,7 @@ export const sidebarTopMenuList: ISidebarList[] = [
   },
   {
     label: 'فناوری اطلاعات',
-    href: '/user-management',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
     // child: [
     //   {
@@ -51,29 +51,29 @@ export const sidebarTopMenuList: ISidebarList[] = [
 
   {
     label: 'اداری، مالی و پشتیبانی',
-    href: '/schemas',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
     orgAdminItem: true,
   },
   {
     label: 'مالی',
-    href: '/jungle',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
     orgAdminItem: true,
   },
   {
     label: 'آموزش',
-    href: '/plugins',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
   },
   {
     label: 'بیمه تکمیلی',
-    href: '/plugins1',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
   },
   {
     label: 'رفاه',
-    href: '/plugins2',
+    href: '/#',
     icon: <Icon style={logoStyle} icon="Folder" />,
   },
 ].map(concatAdminPath);

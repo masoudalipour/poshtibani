@@ -35,8 +35,7 @@ interface Props {
 
 const LogoContainer = styled.div`
   /* width: 20rem; */
-  height: 7rem;
-  cursor: pointer;
+  height: 8rem;
 `;
 export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
   // const { userInfo } = useUserInfo();

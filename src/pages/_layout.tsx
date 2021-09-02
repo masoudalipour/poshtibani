@@ -25,8 +25,8 @@ const SidebarContainer = styled.div`
 
 const AdminComponentContainer = styled.div`
   grid-area: body;
-  padding: 10px;
-  margin: 4rem 2rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0.5rem;
 `;
 
 const AdminContentBodyContainer = styled.div`

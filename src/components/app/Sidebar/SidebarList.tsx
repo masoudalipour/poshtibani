@@ -162,7 +162,11 @@ export const SidebarList: FC<MainListProps> = ({ list, child, pathname, depthLev
     <>
       {filteredList.map((field) => (
         <div key={field.href}>
-          <MainLink field={field} pathname={'/'} isOpen={subMenuOpen?.[field.label]}>
+          <MainLink
+            field={field}
+            pathname={field.href}
+            isOpen={subMenuOpen?.[field.label]}
+          >
             <StyledListItem
               classes={{ root: classes.listItem }}
               button

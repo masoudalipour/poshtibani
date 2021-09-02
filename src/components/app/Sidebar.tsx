@@ -23,7 +23,7 @@ const useStyles = makeStyles(() =>
       background: 'rgb(74, 195, 142)',
       height: '10rem',
       display: 'flex',
-      marginBottom: '4.6rem',
+      marginBottom: '3.5rem',
       justifyContent: 'center',
       alignItems: 'center',
       maxHeight: '11.5rem',
@@ -54,7 +54,7 @@ const StyledGrid = styled(Grid)`
 `;
 
 const Container = styled(Grid)`
-  min-height: calc(100% - 18.1rem);
+  min-height: calc(100% - 15rem);
 `;
 
 interface Props {
