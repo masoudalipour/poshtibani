@@ -39,7 +39,8 @@ const LogoContainer = styled.div`
 `;
 export const Navbar: FC<Props> = ({ leftMenuItems, rightMenuItems }) => {
   // const { userInfo } = useUserInfo();
-  const { userInfo } = { userInfo: { _id: '0' } };
+  // const { userInfo } = { userInfo: { _id: '0' } };
+  const { userInfo } = { userInfo: undefined };
 
   const GridContainerStyles: CSSProperties = {
     height: '10rem',

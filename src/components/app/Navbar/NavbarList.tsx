@@ -111,7 +111,12 @@ export const NavbarList: FC<Props> = ({ menuItems, position, loggedIn }) => {
         if (isLabelItem(item)) {
           return (
             matchedFromLoggedInSide && (
-              <Link key={item.label} href={'#'} as={item.as} passHref>
+              <Link
+                key={item.label}
+                href={item.href === '/login' ? item.href : '#'}
+                as={item.as}
+                passHref
+              >
                 <MenuItemContainer
                   target={item.href === '/admin' ? '_blank' : undefined}
                   position={position}

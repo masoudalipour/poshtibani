@@ -1,20 +1,17 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-
-// import { useAuth } from '$lib/authorization/useAuth';
+import { useAuth } from './useAuth';
 import { LoadingData } from '$components/shared';
+import LoginPage from 'src/pages/login';
 
 export const PageAuthorization = (props) => {
-  const router = useRouter();
-  // const [isLoading, hasAccess] = useAuth(props.children.props);
-  const [isLoading, hasAccess] = [false, true];
+  const [isLoading, hasAccess] = useAuth(props.children.props);
 
   if (isLoading) {
     return <LoadingData loading={isLoading}>{props.children}</LoadingData>;
   }
 
   if (!hasAccess) {
-    router.push('/403');
+    return <LoginPage />;
   }
 
   return props.children;

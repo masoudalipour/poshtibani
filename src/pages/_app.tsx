@@ -70,11 +70,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Providers pageProps={pageProps}>
-      <Layout>
-        <PageAuthorization>
+      <PageAuthorization>
+        <Layout>
           <Component {...pageProps} />
-        </PageAuthorization>
-      </Layout>
+        </Layout>
+      </PageAuthorization>
     </Providers>
   );
 }
